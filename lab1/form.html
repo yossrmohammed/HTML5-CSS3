@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <h1> Change Email Address</h1>
+        <form>
+            <input type="text" id="UserName"  placeholder="UserName" pattern="[a-zA-Z]{2,10} [a-zA-Z]{2,10}"/>
+            <input type="email"  placeholder="Email" id="email" pattern="[a-zA-Z0-9]{5,10}@(gmail|yahoo).com"/>
+            <input type="submit" value="Change">
+        </form> 
+    </main>
+    <script>
+        const UserName= document.getElementById("UserName");
+        const email= document.getElementById("email")
+        const validation= (input, msg)=>{
+            input.addEventListener('invalid', ()=>{
+            input.setCustomValidity(msg);
+        })
+        input.addEventListener('input', ()=>{
+        input.setCustomValidity("");
+        })
+        }
+        validation(UserName, `you must add your first and last name  
+        ex: Yossr Mohamed
+        `)
+        validation(email, `incorrect email`)
+
+    </script>
+</body>
+</html>
